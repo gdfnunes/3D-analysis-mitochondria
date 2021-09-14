@@ -29,7 +29,7 @@ function Shape_measurment(INPUT_DIR) {
 // Run a median filter. Adjust the cpu numbers to your computer!
 		run("3D Fast Filters","filter=Median radius_x_pix=2.0 radius_y_pix=2.0 radius_z_pix=2.0 Nb_cpus=4");
 		selectWindow("3D_Median");
-// Use an hysteresis thresholding method to identify the organelle. Optimize the high and low values!
+// Use a hysteresis thresholding method to identify the organelle. Optimize the high and low values!
 		run("3D Hysteresis Thresholding", "high=50 low=20");
 // Add the selection to the 3D ROI Manager
 		run("3D Manager");
@@ -42,9 +42,9 @@ function Shape_measurment(INPUT_DIR) {
 // Run a median filter. Adjust the cpu numbers to your computer!
 		run("3D Fast Filters","filter=Median radius_x_pix=2.0 radius_y_pix=2.0 radius_z_pix=2.0 Nb_cpus=4");
 		selectWindow("3D_Median");
-// Run an 3D iterative thresholding method to identify each mitochondrion
+// Run a 3D iterative thresholding method to identify each mitochondrion
 		run("3D Iterative Thresholding", "min_vol_pix=20 max_vol_pix=700 min_threshold=0 min_contrast=0 criteria_method=ELONGATION threshold_method=STEP segment_results=All value_method=10");
-// Create a tif file to export 
+// Create a txt file to export 
 		f=File.open(OUTPUT_DIR+"Quantification_"+list[i]+".txt");
 		selectWindow("draw");
 		Ext.Manager3D_AddImage();
